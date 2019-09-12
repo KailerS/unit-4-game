@@ -2,7 +2,6 @@ var targetScore = 0;
 var roundScore = 0;
 var wins = 0;
 var losses = 0;
-var crystals = $(".crystal")
 var crystalValues = {
     ruby:{
         value: randomizeValue(),
@@ -20,7 +19,6 @@ var crystalValues = {
 }
 console.log(crystalValues);
 
-crystals.attr("data-value", Math.floor(Math.random()*25)+5)
 
 function randomizeValue(){
    return  Math.floor(Math.random()*25)+5;
@@ -30,19 +28,33 @@ function randomizeValue(){
 function gameStart(){
     targetScore = Math.floor(Math.random()*101)+50;
     roundScore = 0;
-    // crystalValues.key = Math.floor(Math.random()*25)+5
     wins = 0;
     losses = 0;
 };
 
 gameStart()
-// console.log(crystalValues.key);
 
 $(".crystal").on("click",function(){
-    // var crystalValue = ($(this).attr("data-value"));
-    var crystalValue = ($(this));
-    roundScore =+ crystalValue;
-    console.log($(this));
-});
+    var clickedCrystal = $(this).attr("data-name")
+    console.log(clickedCrystal);
+    switch (clickedCrystal) {
+        case "ruby":
+            roundScore += crystalValues.ruby.value
+            break;
+        case "emerald": 
+            roundScore += crystalValues.emerald.value
+            break;
+        case "sapphire":
+            roundScore += crystalValues.sapphire.value
+            break;
+        case "omi":
+            roundScore += crystalValues.Omi.value
+            break;
+        default:
 
+    }
+    $("#totalScore").text(roundScore);
+    console.log(roundScore);
+    
+});
 
