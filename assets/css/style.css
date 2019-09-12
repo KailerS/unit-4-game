@@ -1,0 +1,45 @@
+body {
+    background-image: url("../images/gaming-pattern.png")
+}
+div {
+    margin: 1%;
+}
+p {
+    margin: 5% 0;
+}
+.tally{
+    margin: 0;
+}
+.score{
+    padding: 1% 0 5% 1%;
+    font-size: 350%;
+    font-weight: 700;
+}
+#firstDiv{
+    background-color: aqua;
+    width: 20%;
+    padding: 1.5% 0;
+}
+#instructonsDiv{
+    background-color: lightsteelblue;
+    width: 40%;
+    padding: 1% 1% 4%;
+}
+#score1{
+    background-color: dodgerblue;
+    width: 17%;   
+}
+#winLoss {
+    background-color: blue;
+    width: 5%;
+}
+#totalHeader {
+    background-color: lightskyblue;
+    width: 19%;
+    padding: .01%;
+}
+#score2 {
+    background-color: cornflowerblue;
+    width: 19%;
+    padding-bottom: 5%;
+}
