@@ -7,6 +7,10 @@ div {
 p {
     margin: 5% 0;
 }
+img {
+    width: 150px;
+    height: 150px;
+}
 .tally{
     margin: 0;
 }
