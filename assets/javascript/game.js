@@ -16,7 +16,7 @@ var crystalValues = {
         value: randomizeValue(),
 
     },
-}
+};
 console.log(crystalValues);
 
 
@@ -26,10 +26,11 @@ function randomizeValue(){
 
 
 function gameStart(){
-    targetScore = Math.floor(Math.random()*101)+50;
+    targetScore = Math.floor(Math.random()*101)+100;
     roundScore = 0;
     wins = 0;
     losses = 0;
+    $("#targetScore").text(targetScore);
 };
 
 gameStart()
@@ -54,6 +55,16 @@ $(".crystal").on("click",function(){
 
     }
     $("#totalScore").text(roundScore);
+
+    if (roundScore === targetScore) {
+        ++wins;
+        $("#wins").text("Wins: " + wins)
+        alert("You've won!");
+    } else if (roundScore > targetScore){
+        alert("You've gone too high! You lose!");
+        ++ losses;
+        $("#losses").text("Losses: " + losses);    
+    }
     console.log(roundScore);
     
 });
