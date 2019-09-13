@@ -12,7 +12,7 @@ var crystalValues = {
     sapphire: {
         value: randomizeValue(),
     },
-    Omi: {
+    omi: {
         value: randomizeValue(),
 
     },
@@ -33,10 +33,20 @@ function gameStart(){
     $("#targetScore").text(targetScore);
 };
 
-gameStart()
+function gameReset() {
+    roundScore = 0;
+    targetScore = Math.floor(Math.random()*101)+100;
+    $("#targetScore").text(targetScore);
+    crystalValues.ruby.value = randomizeValue();
+    crystalValues.emerald.value = randomizeValue();
+    crystalValues.sapphire.value = randomizeValue();
+    crystalValues.omi.value = randomizeValue();
+};
+
+gameStart();
 
 $(".crystal").on("click",function(){
-    var clickedCrystal = $(this).attr("data-name")
+    var clickedCrystal = $(this).attr("data-name");
     console.log(clickedCrystal);
     switch (clickedCrystal) {
         case "ruby":
@@ -49,16 +59,16 @@ $(".crystal").on("click",function(){
             roundScore += crystalValues.sapphire.value
             break;
         case "omi":
-            roundScore += crystalValues.Omi.value
+            roundScore += crystalValues.omi.value
             break;
         default:
 
-    }
+    };
     $("#totalScore").text(roundScore);
 
     if (roundScore === targetScore) {
         ++wins;
-        $("#wins").text("Wins: " + wins)
+        $("#wins").text("Wins: " + wins);
         alert("You've won!");
     } else if (roundScore > targetScore){
         alert("You've gone too high! You lose!");
@@ -68,4 +78,6 @@ $(".crystal").on("click",function(){
     console.log(roundScore);
     
 });
+
+gameReset();
 
